@@ -14,13 +14,12 @@ jobs:
       uses: okteto/login@master
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
-        url: https://staging.okteto.dev
 
-    - name: Deploy preview environment
-      uses: okteto/deploy-preview@jlopezbarb/add-source-url
+    - name: Deploy pipeline
+      uses: okteto/deploy-pipeline@1.14.1
       env:
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       PASS: ${{ secrets.RABBITMQ_PASS }}
       with:
-        name: pr-${{ github.event.number }}-jlopezbarb
-        scope: personal
-        timeout: 15m
+        name: test-flask
+        namespace: ifbyol
+        variables: "RABBITMQ_PASS=${PASS}"
