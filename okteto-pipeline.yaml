@@ -1,3 +1,4 @@
 deploy:
+- printenv
 - echo $RABBITMQ_PASS
 - okteto stack deploy
