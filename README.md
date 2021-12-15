@@ -9,7 +9,7 @@ Create an Okteto secret with key `RABBITMQ_PASS` and `rabbitmq` as value
 
 ## Architecture
 
-This application has the following components:
+This application has the following components :
  - Producer: Generates random text and send it to a rabbitmq queue.
  - Consumer: Get the text from the queue, transform it to uppercase and save it on a MongoDB.
  - API: Gets data from the DB and show it to the user
